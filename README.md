@@ -1,3 +1,35 @@
+# Ritual Predict – Self-Resolving Prediction Market
+
+
+This repository contains the complete code for a binary prediction market that settles itself on Ritual Chain.
+
+### How it works (short version)
+1. Someone creates a market with a question and resolution rule
+2. People bet YES or NO
+3. At the chosen block the Scheduler wakes the contract
+4. The contract fetches real-world data via HTTP precompile
+5. jq extracts the value
+6. The market is resolved or marked Invalid
+7. Winners claim their share
+
+### What I personally reviewed
+- Full create → bet → resolve → claim flow
+- Block-based timing system
+- Three-attempt retry mechanism
+- Prepaid execution fee design
+- Dynamic executor selection
+- Pull-based payout calculation
+
+### Current State
+Public testnet has ended.  
+I have studied every important part of the code and prepared everything for mainnet.
+
+### Future Usage
+Once mainnet RPC is available:
+- Update environment variables
+- Deploy the contract
+- Fund the execution balance
+- Create real markets
 # Ritual Predict
 
 A self-resolving binary prediction market on [Ritual Chain](https://docs.ritualfoundation.org).
